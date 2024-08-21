@@ -1,2 +1,55 @@
-# PVINS
-Loosely Coupled PSD-Visual-Inertial Fusion for Drift-Correctable Positioning System
+# PVINS：Loosely Coupled PSD-Visual-Inertial Fusion for Drift-Correctable Positioning System
+PVINS is an optimization-based multi-sensor state estimator that integrates a Position Sensitive Detector (PSD), stereo camera, and IMU. It provides precise position estimation in local area with a mean positioning error of 9.16 mm. And the accumulated drift of the fusion system in large-scale can be corrected. Experiments were conducted in real indoor environments to validate the effectiveness of our system and its drift-correctable capability.
+
+![image]()
+
+**DemoShow**: [youtube]( https://youtu.be/Y1bcVBrt0Qk) or [bilibili]( https://www.bilibili.com/video/BV1F3WhegE9k/)
+
+
+## 1. Prerequisites
+### 1.1 **Ubuntu** and **ROS**
+Ubuntu 64-bit 20.04.
+ROS  noetic. [ROS Installation](http://wiki.ros.org/ROS/Installation)
+
+
+### 1.2. **Ceres Solver**
+Follow [Ceres Installation](http://ceres-solver.org/installation.html).
+
+
+## 2. Build PVINS
+Clone the repository and catkin_make:
+```
+    cd ~/catkin_ws/src
+    git clone https://github.com/ZuoyuanLiu/PVINS.git
+    cd ../
+    catkin_make
+    source ~/catkin_ws/devel/setup.bash
+```
+(if you fail in this step, try to find another computer with clean system or reinstall Ubuntu and ROS)
+
+## 3. Run PVINS with D435i
+```
+    roslaunch realsense2_camera_stereo_camera.launch
+    rosrun pubpsd_pkg pubpsd_node
+    roslaunch vins_psd vins_psd_rviz.launch
+    rosrun vins_psd vins_psd_node realsense_stereo_imu_config.yaml
+    rosrun global_fusion global_fusion_psd_node
+```
+## 4. Related Papers
+- **PVINS：Loosely Coupled PSD-Visual-Inertial Fusion for Drift-Correctable Positioning System
+This paper is developed based on VINS-Fusion [1].
+```
+[1] A General Optimization-based Framework for Local Odometry Estimation with Multiple Sensors
+```
+*If you find aforementioned works helpful for your research, please cite them.*
+
+## 5. Acknowledgements
+
+Thank Dr.Fengming Sun, Ruiyang Zhong, Zhenyu Zhu, and Dr.Xinyi Zhao; Dr.Tong Qin, Jie Pan, Shaozu Cao, and Shaojie Shen (VINS-Fusion) very much
+
+## 9. License
+The source code is released under [GPLv3](http://www.gnu.org/licenses/) license.
+
+We are still working on improving the code reliability. For any technical issues, please contact Zuoyuan Liu <zuoyuanliu1999@163.com>.
+
+For commercial inquiries, please contact Fengming Sun <fmsun@cauc.edu.cn>.

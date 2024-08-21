@@ -5,6 +5,7 @@ PVINS is an optimization-based multi-sensor state estimator that integrates a Po
 
 **DemoShow**: [youtube]( https://youtu.be/Y1bcVBrt0Qk) or [bilibili]( https://www.bilibili.com/video/BV1F3WhegE9k/)
 
+[![PL-VINS](https://img.youtube.com/vi/Y1bcVBrt0Qk/0.jpg)](https://youtu.be/Y1bcVBrt0Qk)
 
 ## 1. Prerequisites
 ### 1.1 **Ubuntu** and **ROS**

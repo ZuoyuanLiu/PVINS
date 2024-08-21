@@ -47,7 +47,7 @@ This paper is developed based on VINS-Fusion [1].
 
 Thank Dr.Fengming Sun, Ruiyang Zhong, Zhenyu Zhu, and Dr.Xinyi Zhao; Dr.Tong Qin, Jie Pan, Shaozu Cao, and Shaojie Shen (VINS-Fusion) very much
 
-## 9. License
+## 6. License
 The source code is released under [GPLv3](http://www.gnu.org/licenses/) license.
 
 We are still working on improving the code reliability. For any technical issues, please contact Zuoyuan Liu <zuoyuanliu1999@163.com>.

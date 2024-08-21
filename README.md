@@ -1,7 +1,7 @@
 # PVINS：Loosely Coupled PSD-Visual-Inertial Fusion for Drift-Correctable Positioning System
-PVINS is an optimization-based multi-sensor state estimator that integrates a Position Sensitive Detector (PSD), stereo camera, and IMU. It provides precise position estimation in local area with a mean positioning error of 9.16 mm. And the accumulated drift of the fusion system in large-scale can be corrected. Experiments were conducted in real indoor environments to validate the effectiveness of our system and its drift-correctable capability.
+PVINS is an optimization-based multi-sensor state estimator that integrates a Position Sensitive Detector (PSD), stereo camera, and IMU. Experiments were conducted in real indoor environments to validate the effectiveness of our system and its drift-correctable capability.
 
-![image]()
+![image](https://github.com/ZuoyuanLiu/PVINS/blob/master/output/fig6.tif)
 
 **DemoShow**: [youtube]( https://youtu.be/Y1bcVBrt0Qk) or [bilibili]( https://www.bilibili.com/video/BV1F3WhegE9k/)
 
@@ -36,7 +36,7 @@ Clone the repository and catkin_make:
     rosrun global_fusion global_fusion_psd_node
 ```
 ## 4. Related Papers
-- **PVINS：Loosely Coupled PSD-Visual-Inertial Fusion for Drift-Correctable Positioning System
+- PVINS：Loosely Coupled PSD-Visual-Inertial Fusion for Drift-Correctable Positioning System.
 This paper is developed based on VINS-Fusion [1].
 ```
 [1] A General Optimization-based Framework for Local Odometry Estimation with Multiple Sensors

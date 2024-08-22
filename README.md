@@ -33,7 +33,7 @@ Clone the repository and catkin_make:
     roslaunch realsense2_camera_stereo_camera.launch
     rosrun pubpsd_pkg pubpsd_node
     roslaunch vins_psd vins_psd_rviz.launch
-    rosrun vins_psd vins_psd_node realsense_stereo_imu_config.yaml
+    rosrun vins_psd vins_psd_node realsense_stereo_imu_config.yaml(cd config)
     rosrun global_fusion global_fusion_psd_node
 ```
 ## 4. Related Papers

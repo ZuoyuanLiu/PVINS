@@ -1,14 +1,11 @@
 # Toward Large-Scale PSD-based Visible Light Positioning with Visual-Inertial Fusion
 
-![image](https://github.com/cnqiangfu/PL-VINS/blob/master/support_files/plvins-vinsmono.png)
+![image](https://github.com/ZuoyuanLiu/PVINS/blob/master/output/figure9.tif)
 
 
-This respository is an initial version, it will be improved further in the coming months.
+**DemoShow**: [youtube](https://youtu.be/7j6x5J23VpY) or [bilibili](https://www.bilibili.com/video/BV1KrmmYMEEs/)
 
-
-**DemoShow**: [youtube](https://youtu.be/MPf6HufbgdE) or [bilibili](https://www.bilibili.com/video/BV1464y1F7hk/)
-
-[![PL-VINS](https://img.youtube.com/vi/MPf6HufbgdE/0.jpg)](https://youtu.be/MPf6HufbgdE)
+[![PL-VINS](https://img.youtube.com/vi/7j6x5J23VpY/0.jpg)](https://youtu.be/7j6x5J23VpY)
 
 ## 1. Prerequisites
 1.1 **Ubuntu** and **ROS**

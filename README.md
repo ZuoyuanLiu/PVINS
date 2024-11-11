@@ -1,5 +1,6 @@
 # Toward Large-Scale PSD-based Visible Light Positioning with Visual-Inertial Fusion
 
+
 ![image](https://github.com/ZuoyuanLiu/PVINS/blob/master/output/figure9.tif)
 
 
@@ -16,74 +17,50 @@ Ubuntu 18.04. ROS Melodic, please google it.
 
 Eigen 3.3.4 + OpenCV 3.2+ Cere-solver: [Ceres Installation](http://ceres-solver.org/installation.html), remember to **sudo make install**.
 
-## 2. Build PL-VINS on ROS
+## 2. Build PVINS on ROS
 Clone the repository and catkin_make (# note that you will create a new workspace named *catkin_plvins*):
 ```
-	mkdir -p ~/catkin_plvins/src    
-	cd ~/catkin_plvins/
+	mkdir -p ~/catkin_pvins/src    
+	cd ~/catkin_pvins/
 	catkin_make
 	source devel/setup.bash
 	echo $ROS_PACKAGE_PATH             # test you have created it successfully
-	git clone https://github.com/cnqiangfu/PL-VINS.git
+	git clone https://github.com/ZuoyuanLiu/PVINS.git
 ```
-**Notice**: before the second catkin_make, you need to go through /PL-VINS/feature_tracker/CMakeLists.txt, see the sign **# Important** in the CMakeLists.txt, and modify two absolute paths to correctly find the modified LSD algorithm. You also need to make sure OpenCV 3.2 there.
 
 ```	
 	catkin_make
 	source devel/setup.bash
 ```
 
-## 3. Run on EuRoC dataset
+## 3. Run with D435i
 
-Download [EuRoC MAV Dataset](http://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets). We suggust you select difficult sequences to test.
 
-run in the ~/catkin_plvins/
+run in the ~/catkin_pvins/
 ```
-	roslaunch plvins_estimator plvins_show_linepoint.launch
-	rosbag play YOUR_PATH_TO_DATASET/MH_05_difficult.bag
-```
-or 
-```
-roslaunch plvins_estimator euroc_fix_extrinsic.launch        #This launch runs without loop
+	roslaunch realsense2_camera rs_stereo_camera.launch   #open camera and imu
+	roslaunch vins_psd vins_psd_rviz.launch
+	rosrun vins_psd vins_psd_node realsense_stereo_inu_config.yaml
+	rosrun global_fusion global_fusion_psd_node
 ```
 
-Now you should be able to run PL-VINS in the ROS RViZ. 
-
-**Note that**: if you want obtain motion trajectory and compare it to your method. Please modify the ouput paths: /PL-VINS/vins_estimator/src/visualization.cpp (trajectory without loop) and /PL-VINS/pose_graph/src/pose_graph.cpp (trajectory with loop). 
-
-**Note that**:It is an interesting thing we find that different CPU maybe yield different result whether VINS-Mono or PL-VINS, maybe the reason of ROS mechanism. Therefore, we suggest you test or compare methods on your machine by yourself. 
+Now you should be able to run PVINS in the ROS RViZ. 
 
 
-## 4. Related Papers
-
-- **PL-VINS: Real-Time Monocular Visual-Inertial SLAM with Point and Line**.
-
+This paper is developed based on VINS-Fusion[1].
 ```
-@misc{fu2020plvins,
-      title={PL-VINS: Real-Time Monocular Visual-Inertial SLAM with Point and Line Features}, 
-      author={Qiang Fu and Jialong Wang and Hongshan Yu and Islam Ali and Feng Guo and Yijia He and Hong Zhang},
-      year={2020},
-      eprint={2009.07462},
-      archivePrefix={arXiv},
-      primaryClass={cs.RO}
-}
-```
+[1] A General Optimization-based Framework for Local Odometry Estimation with Multiple Sensors
 
-This paper is developed based on PL-VIO [1], VINS-Mono [2], and [3].
-```
-[1] Pl-vio: Tightly-coupled monocular visual-inertial odometry using point and line features
-
-[2] Vins-mono: A robust and versatile monocular visual-inertial state estimator
-
-[3] A robust RGB-D SLAM system with points and lines for low texture indoor environments
 ```
 
 *If you find aforementioned works helpful for your research, please cite them.*
 
-## 5. Acknowledgements
+## 4. Acknowledgements
 
-Thank Dr. Yijia He, Ji Zhao, Yue Guo, Wenhao He, and Kui Yuan(PL-VIO); Dr. Qin Tong, Dr. Peiliang Li, and Prof. Shen (VINS-Mono) very much.
+Thank Ruiyang Zhong, Dr Zhenyu Zhu,Prof. Hongguang Liu and Dr Xinyi Zhao; Dr. Qin Tong and Prof. Shen (VINS-Fusion) very much.
 
-## 6. Licence
+## 5. Licence
 The source code is released under [GPLv3](http://www.gnu.org/licenses/) license.
+We are still working on improving the code reliability. For any technical issues, please contact Zuoyuan Liu.
 
+For commercial inquiries, please contact Fengming Sun.

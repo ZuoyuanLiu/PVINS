@@ -1,7 +1,7 @@
 # Toward Large-Scale PSD-based Visible Light Positioning with Visual-Inertial Fusion
 
 
-![image](https://github.com/ZuoyuanLiu/PVINS/blob/master/output/figure9.tif)
+![image](https://github.com/ZuoyuanLiu/PVINS/blob/master/figure9.tif)
 
 **DemoShow**: [youtube](https://youtu.be/7j6x5J23VpY) or [bilibili](https://www.bilibili.com/video/BV1KrmmYMEEs/)
 
